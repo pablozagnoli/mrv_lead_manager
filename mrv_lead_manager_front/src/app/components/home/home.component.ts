@@ -16,7 +16,9 @@ export class HomeComponent {
 
   leadsInvited() {
     this.service.getAllLeads().subscribe({
-      next: (result) => {},
+      next: (result) => {
+        this.leads = result;
+      },
       error: (error) => {
         alert('ERRO');
       },
@@ -25,7 +27,9 @@ export class HomeComponent {
 
   leadsAccepted() {
     this.service.getAllLeads().subscribe({
-      next: (result) => {},
+      next: (result) => {
+        this.leads = result;
+      },
       error: (error) => {
         alert('ERRO');
       },

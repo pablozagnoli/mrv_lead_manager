@@ -34,19 +34,6 @@ namespace mrv_lead_manager_back.Controllers
             }
         }
 
-        [HttpGet("Get/{id}")]
-        public ActionResult GetId(int id)
-        {
-            try
-            {
-                return Ok();
-            }
-            catch
-            {
-                return BadRequest();
-            }
-        }
-
         [HttpPut("Put")]
         public ActionResult Update([FromBody] LeadsEntity lead)
         {

@@ -12,8 +12,8 @@ export class HomeService {
 
   constructor(private httpcliente: HttpClient) {}
 
-  getAllLeads(): Observable<LeadDTO> {
-    return this.httpcliente.get<LeadDTO>(`${this.BASEURL}Getall`);
+  getAllLeads(): Observable<LeadDTO[]> {
+    return this.httpcliente.get<LeadDTO[]>(`${this.BASEURL}Getall`);
   }
 
   updateLead(param: LeadDTO): Observable<LeadDTO> {
