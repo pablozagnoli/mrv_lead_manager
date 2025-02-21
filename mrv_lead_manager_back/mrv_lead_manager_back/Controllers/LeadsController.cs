@@ -26,7 +26,7 @@ namespace mrv_lead_manager_back.Controllers
             try
             {
                 var result = _LeadsUseCase.GetLeads();
-                return Ok();
+                return Ok(result);
             }
             catch
             {
