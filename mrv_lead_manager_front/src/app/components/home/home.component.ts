@@ -12,8 +12,10 @@ import { LeadDTO } from '../../DTOs/lead';
 export class HomeComponent {
   constructor(private service: HomeService) {}
 
-  leadsInvited(lead: LeadDTO) {
-    this.service.updateLead(lead).subscribe({
+  leads: LeadDTO[] = [];
+
+  leadsInvited() {
+    this.service.getAllLeads().subscribe({
       next: (result) => {},
       error: (error) => {
         alert('ERRO');
@@ -21,8 +23,8 @@ export class HomeComponent {
     });
   }
 
-  leadsAccepted(lead: LeadDTO) {
-    this.service.updateLead(lead).subscribe({
+  leadsAccepted() {
+    this.service.getAllLeads().subscribe({
       next: (result) => {},
       error: (error) => {
         alert('ERRO');
