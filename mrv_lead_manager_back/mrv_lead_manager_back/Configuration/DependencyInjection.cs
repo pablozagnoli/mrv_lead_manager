@@ -28,6 +28,7 @@ namespace mrv_lead_manager_back.Configuration
 
             // Registrando os casos de uso
             services.AddScoped<IGetLeadsUseCase, GetLeadsUseCase>();
+            services.AddScoped<IUpdateLeadUseCase, UpdateLeadUseCase>();
 
             // Registrando outros serviços (se houver)
             services.AddScoped<IGetLeadsService, GetLeadsService>();
