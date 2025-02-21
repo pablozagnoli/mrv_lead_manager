@@ -25,14 +25,29 @@ namespace Infraestructure.Repositories
         public IEnumerable<LeadsEntity> getLeads()
         {
             return new List<LeadsEntity> {
-            new LeadsEntity
-            {
-                category = "teste 1"
-            } ,
-            new LeadsEntity
-            {
-                category = "teste 2"
-            }
+                new LeadsEntity
+                {
+                    category = "teste 1",
+                     status = 1,
+                    name = "dasdsa",
+                    created = DateTime.Now,
+                    SubBurd = "dsadsa",
+                    Id =1,
+                    description = "teste",
+                    Price = 10
+
+                },
+                new LeadsEntity
+                {
+                    category = "teste 2",
+                    status = 1,
+                    name = "dsadsa",
+                    created = DateTime.Now,
+                    SubBurd = "dsadsa",
+                    Id =1,
+                    description = "teste",
+                    Price = 10
+                }
             };
             var sql = "SELECT * FROM leads";
             var result = this._connection.Query<LeadsEntity>(sql);
