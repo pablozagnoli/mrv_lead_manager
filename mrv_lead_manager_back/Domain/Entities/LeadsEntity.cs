@@ -8,6 +8,7 @@ namespace Domain.Entities
 {
     public class LeadsEntity
     {
+        public int status { get; set; }
         public string name { get; set; }
         public DateTime created { get; set; }
         public string SubBurd { get; set; }

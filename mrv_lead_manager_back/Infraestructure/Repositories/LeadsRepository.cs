@@ -41,7 +41,7 @@ namespace Infraestructure.Repositories
 
         public int updateLead(LeadsEntity lead)
         {
-            var sql = $"UPDATE leads SET accept = 1 where id = {lead.Id};";
+            var sql = $"UPDATE leads SET status = {lead.status} where id = {lead.Id};";
             var result = this._connection.Execute(sql);
             return result;
         }

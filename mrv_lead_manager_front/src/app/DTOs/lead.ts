@@ -1,4 +1,5 @@
 export class LeadDTO {
+  status: number | undefined;
   id: number | undefined;
   name: string | undefined;
   created: Date | undefined

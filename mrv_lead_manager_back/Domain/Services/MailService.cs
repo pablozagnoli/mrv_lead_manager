@@ -15,7 +15,7 @@ namespace Domain.Services
         {
             string smtpServer = "smtp.seuprovedor.com";
             int smtpPort = 587; // Porta SMTP (587 para TLS, 465 para SSL)
-            string senderEmail = "seuemail@exemplo.com";
+            string senderEmail = "vendas@teste.com";
             string senderPassword = "suaSenha";
             string recipientEmail = "destinatario@exemplo.com";
             string subject = "Teste de e-mail";

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, input } from '@angular/core';
 import { LeadDTO } from '../../DTOs/lead';
+import { LeadsServiceService } from './service/leads-service.service';
 
 @Component({
   selector: 'app-leads',
@@ -11,5 +12,15 @@ import { LeadDTO } from '../../DTOs/lead';
 export class LeadsComponent {
   @Input() leads: LeadDTO[] = [];
 
-  constructor() {}
+  constructor(private service: LeadsServiceService) {}
+
+  modifLead(lead: LeadDTO, status: number) {
+    lead.status = status
+    this.service.updateLead(lead).subscribe({
+      next: (result) => {},
+      error: (error) => {
+        alert('ERRO');
+      },
+    });
+  }
 }
