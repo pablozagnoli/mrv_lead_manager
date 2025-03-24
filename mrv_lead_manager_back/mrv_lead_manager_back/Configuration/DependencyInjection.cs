@@ -1,5 +1,4 @@
 ﻿using Aplication.UseCases.Leads;
-using Domain.Interfaces.Leads;
 using Domain.Services;
 using Infraestructure.Repositories;
 using Microsoft.AspNetCore.Connections;
@@ -7,6 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using MyApp.Infrastructure.Data;
 using System.Data.SqlClient;
 using System.Data;
+using Domain.Interfaces.Leads.Services;
+using Domain.Interfaces.Leads.UseCases;
+using Domain.Interfaces.Leads.Repository;
 
 namespace mrv_lead_manager_back.Configuration
 {
@@ -30,8 +32,9 @@ namespace mrv_lead_manager_back.Configuration
             services.AddScoped<IGetLeadsUseCase, GetLeadsUseCase>();
             services.AddScoped<IUpdateLeadUseCase, UpdateLeadUseCase>();
 
-            // Registrando outros serviços (se houver)
+            // Registrando serviços
             services.AddScoped<IGetLeadsService, GetLeadsService>();
+            services.AddScoped<IUpdateLeadService, UpdateLeadService>();
         }
 
     }

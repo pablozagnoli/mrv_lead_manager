@@ -1,11 +1,11 @@
-﻿using Domain.Interfaces.Leads;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Interfaces.Leads.Services;
 
 namespace Domain.Services
 {

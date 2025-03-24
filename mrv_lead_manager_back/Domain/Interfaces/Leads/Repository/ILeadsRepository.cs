@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces.Leads
+namespace Domain.Interfaces.Leads.Repository
 {
     public interface ILeadsRepository
     {
         IEnumerable<LeadsEntity> getLeads();
+        IEnumerable<LeadsEntity> GetInvited();
+        IEnumerable<LeadsEntity> GetAccepted();
 
-        int updateLead(LeadsEntity lead);
+        int UpdateLead(LeadsEntity lead);
     }
 }

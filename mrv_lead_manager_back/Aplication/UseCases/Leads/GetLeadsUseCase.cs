@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
-using Domain.Interfaces.Leads;
+using Domain.Interfaces.Leads.Services;
+using Domain.Interfaces.Leads.UseCases;
 using Infraestructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,16 +12,27 @@ namespace Aplication.UseCases.Leads
 {
     public class GetLeadsUseCase : IGetLeadsUseCase
     {
+        private IGetLeadsService _IGetLeadsService;
 
-        private ILeadsRepository _LeadsRepository;
-
-        public GetLeadsUseCase(ILeadsRepository LeadsRepository)
+        public GetLeadsUseCase(IGetLeadsService GetLeadsService)
         {
-            _LeadsRepository = LeadsRepository;
+            _IGetLeadsService = GetLeadsService;
         }
         public List<LeadsEntity> GetLeads()
         {
-            var result = _LeadsRepository.getLeads();
+            var result = _IGetLeadsService.getLeads();
+            return result.ToList();
+        }
+
+        public List<LeadsEntity> GetInvited()
+        {
+            var result = _IGetLeadsService.getLeads();
+            return result.ToList();
+        }
+
+        public List<LeadsEntity> GetAccepted()
+        {
+            var result = _IGetLeadsService.getLeads();
             return result.ToList();
         }
     }
