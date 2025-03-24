@@ -22,6 +22,10 @@ namespace mrv_lead_manager_back.Controllers
             _DeclineLeadUseCase = declineLeadUseCase;
         }
 
+        /// <summary>
+        /// get all leads 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Getall")]
         public ActionResult<List<LeadsEntity>> GetAll()
         {
@@ -36,6 +40,10 @@ namespace mrv_lead_manager_back.Controllers
             }
         }
 
+        /// <summary>
+        /// get all leads at invited
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Getall-invited")]
         public ActionResult<List<LeadsEntity>> GetInvited()
         {
@@ -50,6 +58,10 @@ namespace mrv_lead_manager_back.Controllers
             }
         }
 
+        /// <summary>
+        /// get all leds at acceptet
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("Getall-accepted")]
         public ActionResult<List<LeadsEntity>> GetAccepted()
         {
@@ -64,6 +76,11 @@ namespace mrv_lead_manager_back.Controllers
             }
         }
 
+        /// <summary>
+        /// alter lead at status accepted
+        /// </summary>
+        /// <param name="lead"></param>
+        /// <returns></returns>
         [HttpPut("AcceptLead")]
         public ActionResult AcceptLead([FromBody] LeadsEntity lead)
         {
@@ -78,6 +95,11 @@ namespace mrv_lead_manager_back.Controllers
             }
         }
 
+        /// <summary>
+        /// alter lead at status declined
+        /// </summary>
+        /// <param name="lead"></param>
+        /// <returns></returns>
         [HttpPut("DeclineLead")]
         public ActionResult DeclineLead([FromBody] LeadsEntity lead)
         {
