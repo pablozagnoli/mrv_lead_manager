@@ -1,130 +1,40 @@
-﻿using Dapper;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Interfaces.Leads.Repository;
+using Microsoft.EntityFrameworkCore;
 using MyApp.Infrastructure.Data;
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Infraestructure.Repositories
 {
     public class LeadsRepository : ILeadsRepository
     {
+        private readonly AppDbContext _context;
 
-        private readonly IDbConnection _connection;
-
-        public LeadsRepository(IDbConnection connection)
+        public LeadsRepository(AppDbContext context)
         {
-            _connection = connection;
+            _context = context;
         }
 
         public IEnumerable<LeadsEntity> getLeads()
         {
-            return new List<LeadsEntity> {
-                new LeadsEntity
-                {
-                    category = "teste 1",
-                    status = 1,
-                    name = "Larissa",
-                    created = DateTime.Now,
-                    SubBurd = "dsadsa",
-                    Id =1,
-                    description = "teste",
-                    Price = 10
-
-                },
-                new LeadsEntity
-                {
-                    category = "teste 2",
-                    status = 1,
-                    name = "Mateus",
-                    created = DateTime.Now,
-                    SubBurd = "dsadsa",
-                    Id =1,
-                    description = "teste",
-                    Price = 10
-                }
-            };
-            var sql = "SELECT * FROM leads";
-            var result = this._connection.Query<LeadsEntity>(sql);
-            return result;
+            return _context.Leads.ToList();
         }
-
 
         public IEnumerable<LeadsEntity> GetInvited()
         {
-            return new List<LeadsEntity> {
-                new LeadsEntity
-                {
-                    category = "teste 1",
-                    status = 1,
-                    name = "Pablo",
-                    created = DateTime.Now,
-                    SubBurd = "dsadsa",
-                    Id =1,
-                    description = "teste",
-                    Price = 10
-
-                },
-                new LeadsEntity
-                {
-                    category = "teste 2",
-                    status = 1,
-                    name = "Guilherme",
-                    created = DateTime.Now,
-                    SubBurd = "dsadsa",
-                    Id =1,
-                    description = "teste",
-                    Price = 10
-                }
-            };
-            var sql = "SELECT * FROM leads";
-            var result = this._connection.Query<LeadsEntity>(sql);
-            return result;
+            return _context.Leads.Where(l => l.status == 1).ToList();
         }
-
 
         public IEnumerable<LeadsEntity> GetAccepted()
         {
-            return new List<LeadsEntity> {
-                new LeadsEntity
-                {
-                    category = "teste 1",
-                    status = 1,
-                    name = "Augusto",
-                    created = DateTime.Now,
-                    SubBurd = "dsadsa",
-                    Id =1,
-                    description = "teste",
-                    Price = 10
-
-                },
-                new LeadsEntity
-                {
-                    category = "teste 2",
-                    status = 1,
-                    name = "Maria eduarda",
-                    created = DateTime.Now,
-                    SubBurd = "dsadsa",
-                    Id =1,
-                    description = "teste",
-                    Price = 10
-                }
-            };
-            var sql = "SELECT * FROM leads";
-            var result = this._connection.Query<LeadsEntity>(sql);
-            return result;
+            return _context.Leads.Where(l => l.status == 2).ToList();
         }
 
         public int UpdateLead(LeadsEntity lead)
         {
-            var sql = $"UPDATE leads SET status = {lead.status} where id = {lead.Id};";
-            var result = this._connection.Execute(sql);
-            return result;
+            _context.Leads.Update(lead);
+            return _context.SaveChanges();
         }
     }
 }

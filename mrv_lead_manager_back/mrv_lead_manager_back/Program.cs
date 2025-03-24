@@ -1,4 +1,5 @@
 using mrv_lead_manager_back.Configuration;
+using MyApp.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

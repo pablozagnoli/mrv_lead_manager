@@ -1,11 +1,9 @@
 ﻿using Aplication.UseCases.Leads;
 using Domain.Services;
 using Infraestructure.Repositories;
-using Microsoft.AspNetCore.Connections;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MyApp.Infrastructure.Data;
-using System.Data.SqlClient;
-using System.Data;
 using Domain.Interfaces.Leads.Services;
 using Domain.Interfaces.Leads.UseCases;
 using Domain.Interfaces.Leads.Repository;
@@ -14,18 +12,15 @@ namespace mrv_lead_manager_back.Configuration
 {
     public static class DependencyInjection
     {
-
         public static void AddApplicationServices(this IServiceCollection services, string connectionString)
         {
-            // Adicionando a conexão ao banco de dados
-            services.AddSingleton(new DbConnectionFactory(connectionString));
-
-            services.AddScoped<IDbConnection>(provider =>
+            // Adicionando o DbContext para Entity Framework Core
+            services.AddDbContext<AppDbContext>(options =>
             {
-                return new SqlConnection(connectionString);
+                options.UseSqlServer(connectionString);
             });
 
-            // Registrando os repositórios
+            // Registrando os repositórios com EF Core
             services.AddScoped<ILeadsRepository, LeadsRepository>();
 
             // Registrando os casos de uso
@@ -39,6 +34,5 @@ namespace mrv_lead_manager_back.Configuration
             services.AddScoped<IAcceptLeadService, AcceptLeadService>();
             services.AddScoped<IMailService, MailService>();
         }
-
     }
 }

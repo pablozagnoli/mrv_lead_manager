@@ -11,13 +11,13 @@ namespace mrv_lead_manager_back.Controllers
     public class LeadsController : ControllerBase
     {
 
-        private IGetLeadsUseCase _LeadsUseCase;
+        private IGetLeadsUseCase _GetLeadsUseCase;
         private IAcceptLeadUseCase _AcceptLeadUseCase;
         private IDeclineLeadUseCase _DeclineLeadUseCase;
 
         public LeadsController(IGetLeadsUseCase LeadsUseCase, IAcceptLeadUseCase UpdateLeadUseCase, IDeclineLeadUseCase declineLeadUseCase)
         {
-            _LeadsUseCase = LeadsUseCase;
+            _GetLeadsUseCase = LeadsUseCase;
             _AcceptLeadUseCase = UpdateLeadUseCase;
             _DeclineLeadUseCase = declineLeadUseCase;
         }
@@ -27,7 +27,7 @@ namespace mrv_lead_manager_back.Controllers
         {
             try
             {
-                var result = _LeadsUseCase.GetLeads();
+                var result = _GetLeadsUseCase.GetLeads();
                 return Ok(result);
             }
             catch
@@ -41,7 +41,7 @@ namespace mrv_lead_manager_back.Controllers
         {
             try
             {
-                var result = _LeadsUseCase.GetInvited();
+                var result = _GetLeadsUseCase.GetInvited();
                 return Ok(result);
             }
             catch
@@ -55,7 +55,7 @@ namespace mrv_lead_manager_back.Controllers
         {
             try
             {
-                var result = _LeadsUseCase.GetAccepted();
+                var result = _GetLeadsUseCase.GetAccepted();
                 return Ok(result);
             }
             catch
