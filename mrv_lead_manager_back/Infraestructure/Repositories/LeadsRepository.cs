@@ -61,7 +61,7 @@ namespace Infraestructure.Repositories
                 new LeadsEntity
                 {
                     category = "teste 1",
-                     status = 1,
+                    status = 1,
                     name = "Pablo",
                     created = DateTime.Now,
                     SubBurd = "dsadsa",
@@ -94,7 +94,7 @@ namespace Infraestructure.Repositories
                 new LeadsEntity
                 {
                     category = "teste 1",
-                     status = 1,
+                    status = 1,
                     name = "Augusto",
                     created = DateTime.Now,
                     SubBurd = "dsadsa",

@@ -26,13 +26,13 @@ namespace Aplication.UseCases.Leads
 
         public List<LeadsEntity> GetInvited()
         {
-            var result = _IGetLeadsService.getLeads();
+            var result = _IGetLeadsService.GetInvited();
             return result.ToList();
         }
 
         public List<LeadsEntity> GetAccepted()
         {
-            var result = _IGetLeadsService.getLeads();
+            var result = _IGetLeadsService.GetAccepted();
             return result.ToList();
         }
     }

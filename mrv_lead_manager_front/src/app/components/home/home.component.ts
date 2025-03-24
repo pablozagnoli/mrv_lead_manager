@@ -26,7 +26,7 @@ export class HomeComponent {
   }
 
   leadsAccepted() {
-    this.service.getInvited().subscribe({
+    this.service.getAccepted().subscribe({
       next: (result) => {
         this.leads = result;
       },

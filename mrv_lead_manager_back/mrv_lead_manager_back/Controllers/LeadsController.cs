@@ -39,7 +39,7 @@ namespace mrv_lead_manager_back.Controllers
         {
             try
             {
-                var result = _LeadsUseCase.GetLeads();
+                var result = _LeadsUseCase.GetInvited();
                 return Ok(result);
             }
             catch
@@ -53,7 +53,7 @@ namespace mrv_lead_manager_back.Controllers
         {
             try
             {
-                var result = _LeadsUseCase.GetLeads();
+                var result = _LeadsUseCase.GetAccepted();
                 return Ok(result);
             }
             catch

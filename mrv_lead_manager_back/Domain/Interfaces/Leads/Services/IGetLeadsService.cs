@@ -10,5 +10,7 @@ namespace Domain.Interfaces.Leads.Services
     public interface IGetLeadsService
     {
         IEnumerable<LeadsEntity> getLeads();
+        IEnumerable<LeadsEntity> GetInvited();
+        IEnumerable<LeadsEntity> GetAccepted();
     }
 }
