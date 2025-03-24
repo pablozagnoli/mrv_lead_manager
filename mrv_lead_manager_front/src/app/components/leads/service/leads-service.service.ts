@@ -12,15 +12,11 @@ export class LeadsServiceService {
 
   constructor(private httpcliente: HttpClient) {}
 
-  updateLead(param: LeadDTO): Observable<LeadDTO> {
-    return this.httpcliente.put<LeadDTO>(`${this.BASEURL}Put`, param);
+  AcceptLead(param: LeadDTO): Observable<LeadDTO> {
+    return this.httpcliente.put<LeadDTO>(`${this.BASEURL}AcceptLead`, param);
   }
 
-  getInvited(param: LeadDTO): Observable<LeadDTO> {
-    return this.httpcliente.put<LeadDTO>(`${this.BASEURL}Put`, param);
-  }
-
-  getAccepted(param: LeadDTO): Observable<LeadDTO> {
-    return this.httpcliente.put<LeadDTO>(`${this.BASEURL}Put`, param);
+  DeclineLead(param: LeadDTO): Observable<LeadDTO> {
+    return this.httpcliente.put<LeadDTO>(`${this.BASEURL}DeclineLead`, param);
   }
 }

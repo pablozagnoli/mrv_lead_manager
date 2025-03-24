@@ -21,7 +21,7 @@ namespace mrv_lead_manager_back.Controllers
         }
 
         [HttpGet("Getall")]
-        public ActionResult<List<LeadsEntity>> Get()
+        public ActionResult<List<LeadsEntity>> GetAll()
         {
             try
             {
@@ -62,8 +62,22 @@ namespace mrv_lead_manager_back.Controllers
             }
         }
 
-        [HttpPut("Put")]
-        public ActionResult Update([FromBody] LeadsEntity lead)
+        [HttpPut("AcceptLead")]
+        public ActionResult AcceptLead([FromBody] LeadsEntity lead)
+        {
+            try
+            {
+                _UpdateLeadUseCase.UpdateLead(lead);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPut("DeclineLead")]
+        public ActionResult DeclineLead([FromBody] LeadsEntity lead)
         {
             try
             {

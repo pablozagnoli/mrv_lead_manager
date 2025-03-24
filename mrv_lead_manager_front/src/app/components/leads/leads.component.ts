@@ -14,9 +14,19 @@ export class LeadsComponent {
 
   constructor(private service: LeadsServiceService) {}
 
-  modifLead(lead: LeadDTO, status: number) {
+  AcceptLead(lead: LeadDTO, status: number) {
     lead.status = status
-    this.service.updateLead(lead).subscribe({
+    this.service.AcceptLead(lead).subscribe({
+      next: (result) => {},
+      error: (error) => {
+        alert('ERRO');
+      },
+    });
+  }
+
+  DeclineLead(lead: LeadDTO, status: number) {
+    lead.status = status
+    this.service.DeclineLead(lead).subscribe({
       next: (result) => {},
       error: (error) => {
         alert('ERRO');
