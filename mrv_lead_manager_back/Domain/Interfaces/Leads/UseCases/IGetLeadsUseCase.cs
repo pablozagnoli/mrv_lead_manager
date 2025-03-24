@@ -9,8 +9,8 @@ namespace Domain.Interfaces.Leads.UseCases
 {
     public interface IGetLeadsUseCase
     {
-        List<LeadsEntity> GetLeads();
-        List<LeadsEntity> GetInvited();
-        List<LeadsEntity> GetAccepted();
+        Task<List<LeadsEntity>> GetLeadsAsync();
+        Task<List<LeadsEntity>> GetInvitedAsync();
+        Task<List<LeadsEntity>> GetAcceptedAsync();
     }
 }

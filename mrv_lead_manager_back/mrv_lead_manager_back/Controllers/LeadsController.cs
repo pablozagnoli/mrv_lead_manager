@@ -10,7 +10,6 @@ namespace mrv_lead_manager_back.Controllers
     [Route("leads")]
     public class LeadsController : ControllerBase
     {
-
         private IGetLeadsUseCase _GetLeadsUseCase;
         private IAcceptLeadUseCase _AcceptLeadUseCase;
         private IDeclineLeadUseCase _DeclineLeadUseCase;
@@ -22,96 +21,80 @@ namespace mrv_lead_manager_back.Controllers
             _DeclineLeadUseCase = declineLeadUseCase;
         }
 
-        /// <summary>
-        /// get all leads 
-        /// </summary>
-        /// <returns></returns>
         [HttpGet("Getall")]
-        public ActionResult<List<LeadsEntity>> GetAll()
+        public async Task<ActionResult<List<LeadsEntity>>> GetAll()
         {
             try
             {
-                var result = _GetLeadsUseCase.GetLeads();
+                var result = await _GetLeadsUseCase.GetLeadsAsync();
                 return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                // Log the exception
+                return BadRequest(ex.Message);
             }
         }
 
-        /// <summary>
-        /// get all leads at invited
-        /// </summary>
-        /// <returns></returns>
         [HttpGet("Getall-invited")]
-        public ActionResult<List<LeadsEntity>> GetInvited()
+        public async Task<ActionResult<List<LeadsEntity>>> GetInvited()
         {
             try
             {
-                var result = _GetLeadsUseCase.GetInvited();
+                var result = await _GetLeadsUseCase.GetInvitedAsync();
                 return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                // Log the exception
+                return BadRequest(ex.Message);
             }
         }
 
-        /// <summary>
-        /// get all leds at acceptet
-        /// </summary>
-        /// <returns></returns>
         [HttpGet("Getall-accepted")]
-        public ActionResult<List<LeadsEntity>> GetAccepted()
+        public async Task<ActionResult<List<LeadsEntity>>> GetAccepted()
         {
             try
             {
-                var result = _GetLeadsUseCase.GetAccepted();
+                var result = await _GetLeadsUseCase.GetAcceptedAsync();
                 return Ok(result);
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                // Log the exception
+                return BadRequest(ex.Message);
             }
         }
 
-        /// <summary>
-        /// alter lead at status accepted
-        /// </summary>
-        /// <param name="lead"></param>
-        /// <returns></returns>
         [HttpPut("AcceptLead")]
-        public ActionResult AcceptLead([FromBody] LeadsEntity lead)
+        public async Task<ActionResult> AcceptLead([FromBody] LeadsEntity lead)
         {
             try
             {
-                _AcceptLeadUseCase.AcceptLead(lead);
+                await _AcceptLeadUseCase.AcceptLeadAsync(lead);
                 return Ok();
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                // Log the exception
+                return BadRequest(ex.Message);
             }
         }
 
-        /// <summary>
-        /// alter lead at status declined
-        /// </summary>
-        /// <param name="lead"></param>
-        /// <returns></returns>
         [HttpPut("DeclineLead")]
-        public ActionResult DeclineLead([FromBody] LeadsEntity lead)
+        public async Task<ActionResult> DeclineLead([FromBody] LeadsEntity lead)
         {
             try
             {
-                _DeclineLeadUseCase.DeclineLead(lead);
+                await _DeclineLeadUseCase.DeclineLeadAsync(lead);
                 return Ok();
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                // Log the exception
+                return BadRequest(ex.Message);
             }
         }
     }
+
 }

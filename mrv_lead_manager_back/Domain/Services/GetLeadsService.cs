@@ -17,22 +17,20 @@ namespace Domain.Services
             _LeadsRepository = LeadsRepository;
         }
 
-        public IEnumerable<LeadsEntity> getLeads()
+        public async Task<IEnumerable<LeadsEntity>> GetLeadsAsync()
         {
-            var result = _LeadsRepository.getLeads();
-            return result;
+            return await _LeadsRepository.GetLeadsAsync();
         }
 
-        public IEnumerable<LeadsEntity> GetInvited()
+        public async Task<IEnumerable<LeadsEntity>> GetInvitedAsync()
         {
-            var result = _LeadsRepository.GetInvited();
-            return result;
+            return await _LeadsRepository.GetInvitedAsync();
         }
 
-        public IEnumerable<LeadsEntity> GetAccepted()
+        public async Task<IEnumerable<LeadsEntity>> GetAcceptedAsync()
         {
-            var result = _LeadsRepository.GetAccepted();
-            return result;
+            return await _LeadsRepository.GetAcceptedAsync();
         }
     }
+
 }

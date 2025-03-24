@@ -16,25 +16,26 @@ namespace Infraestructure.Repositories
             _context = context;
         }
 
-        public IEnumerable<LeadsEntity> getLeads()
+        public async Task<IEnumerable<LeadsEntity>> GetLeadsAsync()
         {
-            return _context.Leads.ToList();
+            return await _context.Leads.ToListAsync();
         }
 
-        public IEnumerable<LeadsEntity> GetInvited()
+        public async Task<IEnumerable<LeadsEntity>> GetInvitedAsync()
         {
-            return _context.Leads.Where(l => l.status == 1).ToList();
+            return await _context.Leads.Where(l => l.status == 1).ToListAsync();
         }
 
-        public IEnumerable<LeadsEntity> GetAccepted()
+        public async Task<IEnumerable<LeadsEntity>> GetAcceptedAsync()
         {
-            return _context.Leads.Where(l => l.status == 2).ToList();
+            return await _context.Leads.Where(l => l.status == 2).ToListAsync();
         }
 
-        public int UpdateLead(LeadsEntity lead)
+        public async Task<int> UpdateLeadAsync(LeadsEntity lead)
         {
             _context.Leads.Update(lead);
-            return _context.SaveChanges();
+            return await _context.SaveChangesAsync();
         }
     }
+
 }

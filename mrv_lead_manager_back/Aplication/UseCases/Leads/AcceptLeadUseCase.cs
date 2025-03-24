@@ -18,9 +18,9 @@ namespace Aplication.UseCases.Leads
         {
             _AcceptLeadService = AcceptLeadService;
         }
-        public int AcceptLead(LeadsEntity lead)
+        public async Task<int> AcceptLeadAsync(LeadsEntity lead)
         {
-            var result = _AcceptLeadService.AcceptLead(lead);
+            var result = await _AcceptLeadService.AcceptLeadAsync(lead);
             return result;
         }
     }

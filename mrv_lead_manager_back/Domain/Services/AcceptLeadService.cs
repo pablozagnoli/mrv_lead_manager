@@ -21,7 +21,7 @@ namespace Domain.Services
             _IMailService = mailService;
         }
 
-        public int AcceptLead(LeadsEntity lead)
+        public async Task<int> AcceptLeadAsync(LeadsEntity lead)
         {
             if (lead.Price > 500)
             {
@@ -30,7 +30,7 @@ namespace Domain.Services
 
             _IMailService.SendMailLeadAccept();
 
-            var result = _LeadsRepository.UpdateLead(lead);
+            var result = await _LeadsRepository.UpdateLeadAsync(lead);
             return result;
         }
     }

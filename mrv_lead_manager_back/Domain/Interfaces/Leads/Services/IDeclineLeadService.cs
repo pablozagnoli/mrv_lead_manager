@@ -9,6 +9,6 @@ namespace Domain.Interfaces.Leads.Services
 {
     public interface IDeclineLeadService
     {
-        int DeclineLead(LeadsEntity lead);
+        Task<int> DeclineLeadAsync(LeadsEntity lead);
     }
 }

@@ -9,6 +9,6 @@ namespace Domain.Interfaces.Leads.UseCases
 {
     public interface IAcceptLeadUseCase
     {
-        int AcceptLead(LeadsEntity lead);
+        Task<int> AcceptLeadAsync(LeadsEntity lead);
     }
 }

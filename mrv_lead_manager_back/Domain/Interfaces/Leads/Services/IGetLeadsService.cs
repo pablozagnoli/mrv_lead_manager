@@ -9,8 +9,9 @@ namespace Domain.Interfaces.Leads.Services
 {
     public interface IGetLeadsService
     {
-        IEnumerable<LeadsEntity> getLeads();
-        IEnumerable<LeadsEntity> GetInvited();
-        IEnumerable<LeadsEntity> GetAccepted();
+        Task<IEnumerable<LeadsEntity>> GetLeadsAsync();
+        Task<IEnumerable<LeadsEntity>> GetInvitedAsync();
+        Task<IEnumerable<LeadsEntity>> GetAcceptedAsync();
     }
+
 }

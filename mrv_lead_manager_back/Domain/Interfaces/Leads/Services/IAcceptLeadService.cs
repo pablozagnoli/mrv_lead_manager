@@ -9,6 +9,6 @@ namespace Domain.Interfaces.Leads.Services
 {
     public interface IAcceptLeadService
     {
-        public int AcceptLead(LeadsEntity lead);
+        public Task<int> AcceptLeadAsync(LeadsEntity lead);
     }
 }

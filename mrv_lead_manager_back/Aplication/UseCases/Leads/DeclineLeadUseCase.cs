@@ -18,9 +18,9 @@ namespace Aplication.UseCases.Leads
         {
             _LeadsService = LeadsService;
         }
-        public int DeclineLead(LeadsEntity lead)
+        public async Task<int> DeclineLeadAsync(LeadsEntity lead)
         {
-            var result = _LeadsService.DeclineLead(lead);
+            var result = await _LeadsService.DeclineLeadAsync(lead);
             return result;
         }
     }

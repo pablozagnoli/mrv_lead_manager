@@ -9,10 +9,10 @@ namespace Domain.Interfaces.Leads.Repository
 {
     public interface ILeadsRepository
     {
-        IEnumerable<LeadsEntity> getLeads();
-        IEnumerable<LeadsEntity> GetInvited();
-        IEnumerable<LeadsEntity> GetAccepted();
+        Task<IEnumerable<LeadsEntity>> GetLeadsAsync();
+        Task<IEnumerable<LeadsEntity>> GetInvitedAsync();
+        Task<IEnumerable<LeadsEntity>> GetAcceptedAsync();
 
-        int UpdateLead(LeadsEntity lead);
+        Task<int> UpdateLeadAsync(LeadsEntity lead);
     }
 }

@@ -17,9 +17,9 @@ namespace Domain.Services
             _LeadsRepository = LeadsRepository;
         }
 
-        public int DeclineLead(LeadsEntity lead)
+        public async Task<int> DeclineLeadAsync(LeadsEntity lead)
         {
-            var result = _LeadsRepository.UpdateLead(lead);
+            var result = await _LeadsRepository.UpdateLeadAsync(lead);
             return result;
         }
     }

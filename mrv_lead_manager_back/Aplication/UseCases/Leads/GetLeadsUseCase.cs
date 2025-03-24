@@ -18,22 +18,24 @@ namespace Aplication.UseCases.Leads
         {
             _IGetLeadsService = GetLeadsService;
         }
-        public List<LeadsEntity> GetLeads()
+
+        public async Task<List<LeadsEntity>> GetLeadsAsync()
         {
-            var result = _IGetLeadsService.getLeads();
+            var result = await _IGetLeadsService.GetLeadsAsync();
             return result.ToList();
         }
 
-        public List<LeadsEntity> GetInvited()
+        public async Task<List<LeadsEntity>> GetInvitedAsync()
         {
-            var result = _IGetLeadsService.GetInvited();
+            var result = await _IGetLeadsService.GetInvitedAsync();
             return result.ToList();
         }
 
-        public List<LeadsEntity> GetAccepted()
+        public async Task<List<LeadsEntity>> GetAcceptedAsync()
         {
-            var result = _IGetLeadsService.GetAccepted();
+            var result = await _IGetLeadsService.GetAcceptedAsync();
             return result.ToList();
         }
     }
+
 }
