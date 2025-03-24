@@ -11,10 +11,10 @@ namespace Domain.Services
 {
     public class MailService : IMailService
     {
-        public void SendMail()
+        public void SendMailLeadAccept()
         {
             string smtpServer = "smtp.seuprovedor.com";
-            int smtpPort = 587; // Porta SMTP (587 para TLS, 465 para SSL)
+            int smtpPort = 587;
             string senderEmail = "vendas@teste.com";
             string senderPassword = "suaSenha";
             string recipientEmail = "destinatario@exemplo.com";
@@ -32,7 +32,7 @@ namespace Domain.Services
 
                 SmtpClient smtpClient = new SmtpClient(smtpServer, smtpPort);
                 smtpClient.Credentials = new NetworkCredential(senderEmail, senderPassword);
-                smtpClient.EnableSsl = true; // Defina como false se não usar SSL/TLS
+                smtpClient.EnableSsl = true;
 
                 smtpClient.Send(mail);
                 Console.WriteLine("E-mail enviado com sucesso!");

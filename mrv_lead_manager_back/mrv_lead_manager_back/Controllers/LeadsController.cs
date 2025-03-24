@@ -12,12 +12,14 @@ namespace mrv_lead_manager_back.Controllers
     {
 
         private IGetLeadsUseCase _LeadsUseCase;
-        private IUpdateLeadUseCase _UpdateLeadUseCase;
+        private IAcceptLeadUseCase _AcceptLeadUseCase;
+        private IDeclineLeadUseCase _DeclineLeadUseCase;
 
-        public LeadsController(IGetLeadsUseCase LeadsUseCase, IUpdateLeadUseCase UpdateLeadUseCase)
+        public LeadsController(IGetLeadsUseCase LeadsUseCase, IAcceptLeadUseCase UpdateLeadUseCase, IDeclineLeadUseCase declineLeadUseCase)
         {
             _LeadsUseCase = LeadsUseCase;
-            _UpdateLeadUseCase = UpdateLeadUseCase;
+            _AcceptLeadUseCase = UpdateLeadUseCase;
+            _DeclineLeadUseCase = declineLeadUseCase;
         }
 
         [HttpGet("Getall")]
@@ -67,7 +69,7 @@ namespace mrv_lead_manager_back.Controllers
         {
             try
             {
-                _UpdateLeadUseCase.UpdateLead(lead);
+                _AcceptLeadUseCase.AcceptLead(lead);
                 return Ok();
             }
             catch
@@ -81,7 +83,7 @@ namespace mrv_lead_manager_back.Controllers
         {
             try
             {
-                _UpdateLeadUseCase.UpdateLead(lead);
+                _DeclineLeadUseCase.DeclineLead(lead);
                 return Ok();
             }
             catch

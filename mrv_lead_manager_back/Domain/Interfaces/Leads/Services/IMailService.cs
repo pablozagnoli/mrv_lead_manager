@@ -8,5 +8,6 @@ namespace Domain.Interfaces.Leads.Services
 {
     public interface IMailService
     {
+        void SendMailLeadAccept();
     }
 }

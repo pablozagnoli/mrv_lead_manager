@@ -10,21 +10,17 @@ using System.Threading.Tasks;
 
 namespace Aplication.UseCases.Leads
 {
-    public class UpdateLeadUseCase : IUpdateLeadUseCase
+    public class DeclineLeadUseCase : IDeclineLeadUseCase
     {
-        private IUpdateLeadService _LeadsService;
+        private IDeclineLeadService _LeadsService;
 
-        public UpdateLeadUseCase(IUpdateLeadService LeadsService)
+        public DeclineLeadUseCase(IDeclineLeadService LeadsService)
         {
             _LeadsService = LeadsService;
         }
-        public int UpdateLead(LeadsEntity lead)
+        public int DeclineLead(LeadsEntity lead)
         {
-            if (lead.Price > 500)
-            {
-                lead.Price = lead.Price - (lead.Price / 10);
-            }
-            var result = _LeadsService.UpdateLead(lead);
+            var result = _LeadsService.DeclineLead(lead);
             return result;
         }
     }

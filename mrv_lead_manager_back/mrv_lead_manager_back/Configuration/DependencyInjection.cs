@@ -30,11 +30,13 @@ namespace mrv_lead_manager_back.Configuration
 
             // Registrando os casos de uso
             services.AddScoped<IGetLeadsUseCase, GetLeadsUseCase>();
-            services.AddScoped<IUpdateLeadUseCase, UpdateLeadUseCase>();
+            services.AddScoped<IAcceptLeadUseCase, AcceptLeadUseCase>();
 
             // Registrando serviços
             services.AddScoped<IGetLeadsService, GetLeadsService>();
-            services.AddScoped<IUpdateLeadService, UpdateLeadService>();
+            services.AddScoped<IDeclineLeadService, DeclineLeadService>();
+            services.AddScoped<IAcceptLeadService, AcceptLeadService>();
+            services.AddScoped<IMailService, MailService>();
         }
 
     }

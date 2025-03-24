@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces.Leads.UseCases
+namespace Domain.Interfaces.Leads.Services
 {
-    public interface IUpdateLeadUseCase
+    public interface IDeclineLeadService
     {
-        int UpdateLead(LeadsEntity lead);
+        int DeclineLead(LeadsEntity lead);
     }
 }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces.Leads.Services
 {
-    public interface IUpdateLeadService
+    public interface IAcceptLeadService
     {
-        public int UpdateLead(LeadsEntity lead);
+        public int AcceptLead(LeadsEntity lead);
     }
 }

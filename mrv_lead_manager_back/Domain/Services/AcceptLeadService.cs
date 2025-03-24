@@ -9,21 +9,27 @@ using System.Threading.Tasks;
 
 namespace Domain.Services
 {
-    public class UpdateLeadService : IUpdateLeadService
+    public class AcceptLeadService : IAcceptLeadService
     {
 
         private ILeadsRepository _LeadsRepository;
-        public UpdateLeadService(ILeadsRepository LeadsRepository)
+        private IMailService _IMailService;
+
+        public AcceptLeadService(ILeadsRepository LeadsRepository, IMailService mailService)
         {
             _LeadsRepository = LeadsRepository;
+            _IMailService = mailService;
         }
 
-        public int UpdateLead(LeadsEntity lead)
+        public int AcceptLead(LeadsEntity lead)
         {
             if (lead.Price > 500)
             {
                 lead.Price = lead.Price - (lead.Price / 10);
             }
+
+            _IMailService.SendMailLeadAccept();
+
             var result = _LeadsRepository.UpdateLead(lead);
             return result;
         }
