@@ -28,8 +28,8 @@ namespace Infraestructure.Repositories
                 new LeadsEntity
                 {
                     category = "teste 1",
-                     status = 1,
-                    name = "dasdsa",
+                    status = 1,
+                    name = "Larissa",
                     created = DateTime.Now,
                     SubBurd = "dsadsa",
                     Id =1,
@@ -41,7 +41,7 @@ namespace Infraestructure.Repositories
                 {
                     category = "teste 2",
                     status = 1,
-                    name = "dsadsa",
+                    name = "Mateus",
                     created = DateTime.Now,
                     SubBurd = "dsadsa",
                     Id =1,
@@ -62,7 +62,7 @@ namespace Infraestructure.Repositories
                 {
                     category = "teste 1",
                      status = 1,
-                    name = "dasdsa",
+                    name = "Pablo",
                     created = DateTime.Now,
                     SubBurd = "dsadsa",
                     Id =1,
@@ -74,7 +74,7 @@ namespace Infraestructure.Repositories
                 {
                     category = "teste 2",
                     status = 1,
-                    name = "dsadsa",
+                    name = "Guilherme",
                     created = DateTime.Now,
                     SubBurd = "dsadsa",
                     Id =1,
@@ -95,7 +95,7 @@ namespace Infraestructure.Repositories
                 {
                     category = "teste 1",
                      status = 1,
-                    name = "dasdsa",
+                    name = "Augusto",
                     created = DateTime.Now,
                     SubBurd = "dsadsa",
                     Id =1,
@@ -107,7 +107,7 @@ namespace Infraestructure.Repositories
                 {
                     category = "teste 2",
                     status = 1,
-                    name = "dsadsa",
+                    name = "Maria eduarda",
                     created = DateTime.Now,
                     SubBurd = "dsadsa",
                     Id =1,

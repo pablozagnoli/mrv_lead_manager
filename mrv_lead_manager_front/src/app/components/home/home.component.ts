@@ -15,7 +15,7 @@ export class HomeComponent {
   leads: LeadDTO[] = [];
 
   leadsInvited() {
-    this.service.getAllLeads().subscribe({
+    this.service.getInvited().subscribe({
       next: (result) => {
         this.leads = result;
       },
@@ -26,7 +26,7 @@ export class HomeComponent {
   }
 
   leadsAccepted() {
-    this.service.getAllLeads().subscribe({
+    this.service.getInvited().subscribe({
       next: (result) => {
         this.leads = result;
       },

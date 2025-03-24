@@ -16,6 +16,14 @@ export class HomeService {
     return this.httpcliente.get<LeadDTO[]>(`${this.BASEURL}Getall`);
   }
 
+  getInvited(): Observable<LeadDTO[]> {
+    return this.httpcliente.get<LeadDTO[]>(`${this.BASEURL}Getall-invited`);
+  }
+
+  getAccepted(): Observable<LeadDTO[]> {
+    return this.httpcliente.get<LeadDTO[]>(`${this.BASEURL}Getall-accepted`);
+  }
+
   updateLead(param: LeadDTO): Observable<LeadDTO> {
     return this.httpcliente.put<LeadDTO>(`${this.BASEURL}Getall`, param);
   }

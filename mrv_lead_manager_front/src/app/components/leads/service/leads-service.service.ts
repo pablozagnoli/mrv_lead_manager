@@ -15,4 +15,12 @@ export class LeadsServiceService {
   updateLead(param: LeadDTO): Observable<LeadDTO> {
     return this.httpcliente.put<LeadDTO>(`${this.BASEURL}Put`, param);
   }
+
+  getInvited(param: LeadDTO): Observable<LeadDTO> {
+    return this.httpcliente.put<LeadDTO>(`${this.BASEURL}Put`, param);
+  }
+
+  getAccepted(param: LeadDTO): Observable<LeadDTO> {
+    return this.httpcliente.put<LeadDTO>(`${this.BASEURL}Put`, param);
+  }
 }
